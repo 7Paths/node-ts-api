@@ -2,9 +2,11 @@
 import express from "express"
 
 // Import API routes
-import userRoutes from '../routes/user'
+import routes from './routes'
 import cors from "cors"
 
+import morgan from "morgan"
+import helmet from "helmet"
 
 class Server {
 
@@ -21,7 +23,7 @@ class Server {
 
         // Initializer methods
         this.middlewares()        
-        this.routes() // Define API routes in express app
+        this.mountRoutes()
     }
 
     // Put express server to listen
@@ -32,18 +34,22 @@ class Server {
     }
 
     // Define API endpoints prefixes
-    routes(){
-        this.app.use(this.apiEndpoints.users, userRoutes)
+    mountRoutes(){
+        this.app.use(this.apiEndpoints.users, routes.userRoutes)
     }
 
     middlewares(){
         // CORS
         this.app.use(cors())
 
+        // Protect API server
+        this.app.use( helmet() )
+
         // Parse body request to JSON
         this.app.use(express.json())
 
-        // Public folders
+        // Requests logger
+        this.app.use( morgan("combined") )
     }
 }
 

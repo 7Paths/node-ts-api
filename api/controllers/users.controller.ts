@@ -1,29 +1,41 @@
 
 import { Request, Response } from "express"
-
+import User from "../models/user"
+import IUser from "../interfaces/user.interface"
 
 
 class UsersController{
 
     getUsers(request: Request, response: Response){
-        response.json({
+        return response.json({
             message: "get users"
         })
     }
 
     getUser(request: Request, response: Response){
-        response.json({
+        return response.json({
             message: "get user"
         })
     }
 
-    postUser(request: Request, response: Response){
-        const { body } = request
+    async postUser(request: Request, response: Response){
+        const { user } = request.body
 
-        response.json({
-            body,
-            msg: "post users"
-        })
+        try {
+            let newUser = new User<IUser>(user)
+
+            newUser.doPasswordsMatch()
+            newUser.encryptPassword()
+            newUser.save()
+
+            return response.json({
+                user: newUser,
+                message: "user created successfully! :)"
+            })
+        } catch (error) {
+            console.log(`Error :${error}`)
+            return response.status(200).json({message: "error",error})
+        }
     }
 
     putUser(request: Request, response: Response){

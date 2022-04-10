@@ -9,19 +9,36 @@
     "app:watch": "nodemon ./dist/app.js",
     "dev": "npm run app:watch"
   },
-  "keywords": ["Nodejs", "TypeScript", "Backend", "API"],
+  "keywords": [
+    "Nodejs",
+    "TypeScript",
+    "Backend",
+    "API"
+  ],
   "author": "Zoe Technologies",
   "license": "MIT",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "tslint": "^6.1.3",
     "typescript": "^4.6.3"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "helmet": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.2",
+    "mongoose": "^6.2.10",
+    "morgan": "^1.10.0"
   }
 }
