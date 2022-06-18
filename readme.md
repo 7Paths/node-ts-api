@@ -16,4 +16,6 @@ First install all nodejs packages
     npm run dev
 ```
 
+--------
+
 #### Built with 💙 by Zoe Development Team
