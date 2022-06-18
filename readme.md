@@ -1,4 +1,6 @@
-# Backend NodeJS API using TypeScript
+<h1 align="center">
+    Backend NodeJS API using TypeScript
+</h1>
 
 ## Table of Contents
 - [Installation](#installation)
