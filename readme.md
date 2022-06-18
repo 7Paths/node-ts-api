@@ -15,3 +15,5 @@ First install all nodejs packages
 ```console
     npm run dev
 ```
+
+#### Built with 💙 by Zoe Development Team
